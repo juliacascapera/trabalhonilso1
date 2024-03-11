@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Nome: Daniel França Ribeiro 3°j
+    Nome: Gabriel Lira de Almeida 3°j
+    Nome: Julia Cascapera Martins 3°j
+    Nome: Marinna Nascimento Novaes dos Santos 3°j-->
+    <html lang="pt-BR">
+        <head>
+            <title>exercício sobre estrutura condicional</title>
+            <meta charset="UTF-8">
+           
+        </head>
+        <body>
+            <div>
+                <label style ="font-size: 20px;"> Numero 1 </label>
+                <input type="text" id="Numero1" autofocus><br>
+                <button onclick= "mostrar()">mostrar</button><br><br>
+                <canvas id="meuCanvas" width="400" height="400" style="border: 1px solid #000000; background-color: white;"></canvas>
+               
+               
+                </div>
+            </body>
+            <script>
+                var canvas = document.querySelector('canvas#meuCanvas');
+                console.log("canvas",canvas);
+                var cntxt = canvas.getContext ('2d');
+                function mostrar(){
+                    if (canvas.getContext){
+                        var maxWidth = 300;
+                        var lineHeight = 35;
+                        var x = (canvas.width - maxWidth) / 2;
+                        var y = 60;
+                        var N1 = parseInt (document.getElementById ("Numero1").value, 10);
+                        cntxt.fillStyle = "rgb(255, 255, 255)";
+                        cntxt.fillRect (0, 0, canvas.width, canvas.height);
+                        cntxt.font="30px Comic Sans MS";
+                        cntxt.fillStyle = "rgb (255, 0, 0)";
+                        let line = primo (cntxt, N1, x, y);
+                        cntxt.fillText (line, x, y);
+                        cntxt.strokeText (line, x, y);
+                        document.getElementById("Numero1").value="";
+                        document.getElementById("Numero1").focus="";
+                    }
+                }
+
+                function primo (cntxt, N1, x, y) {
+                    let divisor = 3;
+                    let line = 'é primo';
+                    let metade = '';
+                    if ( N1<2 || N1%2==0 && N1!=2){
+                    line = "não é primo";
+                    }
+
+                    else{
+                    metade = N1/2;
+                    }
+                    while(divisor < metade) {
+                      if(N1%divisor == 0){
+                        line = "não é primo";
+                        return line;
+                      }
+                      divisor = divisor + 2;
+                    }
+                    return line
+                }
+            </script>
+                </html>
+
+
